@@ -150,6 +150,8 @@ class MemoryImage(object):
 
 			kdbg_regex = re.search('KDBG : ([^\n]*)', data)
 			auto_kdbg = kdbg_regex.group(1)
+			if ("L" in auto_kdbg[-2:]):
+				auto_kdbg = auto_kdbg[:-2]
 
 		# If not already provided, select the first suggested profile
 		if not self.profile:
